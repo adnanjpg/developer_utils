@@ -1,0 +1,40 @@
+name: Build and Release macOS App
+
+on:
+  push:
+    branches:
+      - stable
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+          architecture: aarch64
+      - run: flutter pub get
+      - run: flutter build macos --release
+      - uses: actions/upload-artifact@v3
+        with:
+          name: macos-app
+          path: build/macos/Build/Products/Release/developer_utils.app
+  # release:
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/download-artifact@v3
+  #       with:
+  #         name: macos-app
+  #         path: macos-app
+  #     - run: chmod +x macos-app/developer_utils
+  #     - run: mkdir -p release
+  #     - run: cp macos-app/* release
+  #     - uses: actions/create-release@v3
+  #       with:
+  #         tag_name: ${{ github.event.push.head.sha }}
+  #         release_name: ${{ github.event.push.head.sha }}
+  #         draft: false
+  #         prerelease: false
+  #         assets: release/*
