@@ -91,6 +91,15 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.18.1"
+  life_saver_extensions:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: main
+      resolved-ref: "9d32db5582e74c0b96c1b67d5711284c60c75ce6"
+      url: "git@github.com:adnanjpg/life_saver_extensions.git"
+    source: git
+    version: "0.0.1"
   lints:
     dependency: transitive
     description:
