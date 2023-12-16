@@ -13,12 +13,12 @@ class AppSiderbar extends ConsumerWidget {
 
     final items = [
       (
-        id: 'string_case_converter',
+        id: SelectedTool.stringCaseConverter,
         title: 'String Case Converter',
         onPressed: () => onSelected(SelectedTool.stringCaseConverter),
       ),
       (
-        id: 'unix_time_converter',
+        id: SelectedTool.unixTimeConverter,
         title: 'Unix Time Converter',
         onPressed: () => onSelected(SelectedTool.unixTimeConverter),
       )
@@ -29,9 +29,11 @@ class AppSiderbar extends ConsumerWidget {
         itemCount: items.length,
         itemBuilder: (context, index) {
           final item = items[index];
+
           return ListTile(
             title: Text(item.title),
             onTap: item.onPressed,
+            selected: ref.watch(selectedToolProv) == item.id,
           );
         },
       ),
