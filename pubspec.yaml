@@ -13,6 +13,8 @@ dependencies:
     sdk: flutter
   cupertino_icons: "1.0.2"
   flutter_riverpod: "2.4.9"
+  remixicon: ^1.0.0
+  timeago: ^3.6.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

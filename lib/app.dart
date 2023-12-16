@@ -1,4 +1,5 @@
 import 'package:developer_utils/features/string_case_converter/string_case_converter.dart';
+import 'package:developer_utils/features/unix_time_converter/unix_time_converter.dart';
 import 'package:developer_utils/selected_tool_prov.dart';
 import 'package:developer_utils/sidebar.dart';
 import 'package:flutter/material.dart';
@@ -40,6 +41,8 @@ class MyHomePage extends StatelessWidget {
                 switch (selectedTool) {
                   case SelectedTool.stringCaseConverter:
                     return const StringCaseCoverter();
+                  case SelectedTool.unixTimeConverter:
+                    return const UnixTimeConverter();
                 }
               },
             ),
