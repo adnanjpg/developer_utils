@@ -115,62 +115,65 @@ class _UnixTimeConverterState extends State<UnixTimeConverter> {
               });
             },
           ),
-          if (val != null)
-            ...[
-              Text('Output type: ${val.type.name}'),
-              Row(
-                children: [
-                  Expanded(
-                    child: _OutputItem(
-                      title: 'Local',
-                      text: val.time.toIso8601String(),
-                    ),
-                  ),
-                  Expanded(
-                    child: _OutputItem(
-                      title: 'UTC',
-                      text: val.time.toUtc().toIso8601String(),
-                    ),
-                  ),
-                ],
+          if (val != null) ...[
+            ListTile(
+              title: Text(
+                'Output type: ${val.type.name}',
+                style: Theme.of(context).textTheme.bodyLarge,
               ),
-              Row(
-                children: [
-                  Expanded(
-                    child: _OutputItem(
-                      title: 'Seconds from epoch',
-                      text:
-                          (val.time.millisecondsSinceEpoch ~/ 1000).toString(),
-                    ),
-                  ),
-                  Expanded(
-                    child: _OutputItem(
-                      title: 'Milliseconds from epoch',
-                      text: val.time.millisecondsSinceEpoch.toString(),
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    child: _OutputItem(
-                      title: 'Microseconds from epoch',
-                      text: val.time.microsecondsSinceEpoch.toString(),
-                    ),
-                  ),
-                  Expanded(
-                    child: _OutputItem(
-                      title: 'Relative',
-                      text: timeago.format(val.time),
-                    ),
-                  ),
-                ],
-              ),
-            ].joinWidgetList(
-              (_) => defVerticalSeperator,
             ),
-        ],
+            Row(
+              children: [
+                Expanded(
+                  child: _OutputItem(
+                    title: 'Local',
+                    text: val.time.toIso8601String(),
+                  ),
+                ),
+                Expanded(
+                  child: _OutputItem(
+                    title: 'UTC',
+                    text: val.time.toUtc().toIso8601String(),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: _OutputItem(
+                    title: 'Seconds from epoch',
+                    text: (val.time.millisecondsSinceEpoch ~/ 1000).toString(),
+                  ),
+                ),
+                Expanded(
+                  child: _OutputItem(
+                    title: 'Milliseconds from epoch',
+                    text: val.time.millisecondsSinceEpoch.toString(),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: _OutputItem(
+                    title: 'Microseconds from epoch',
+                    text: val.time.microsecondsSinceEpoch.toString(),
+                  ),
+                ),
+                Expanded(
+                  child: _OutputItem(
+                    title: 'Relative',
+                    text: timeago.format(val.time),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ].joinWidgetList(
+          (_) => defVerticalSeperator,
+        ),
       ),
     );
   }
@@ -200,6 +203,7 @@ class _OutputItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(title),
         Row(

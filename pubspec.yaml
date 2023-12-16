@@ -13,8 +13,8 @@ dependencies:
     sdk: flutter
   cupertino_icons: "1.0.2"
   flutter_riverpod: "2.4.9"
-  remixicon: ^1.0.0
-  timeago: ^3.6.0
+  remixicon: "1.0.0"
+  timeago: "3.6.0"
   life_saver_extensions:
     git:
       url: git@github.com:adnanjpg/life_saver_extensions.git

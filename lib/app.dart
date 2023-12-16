@@ -2,6 +2,7 @@ import 'package:developer_utils/features/string_case_converter/string_case_conve
 import 'package:developer_utils/features/unix_time_converter/unix_time_converter.dart';
 import 'package:developer_utils/selected_tool_prov.dart';
 import 'package:developer_utils/sidebar.dart';
+import 'package:developer_utils/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -33,6 +34,10 @@ class MyHomePage extends StatelessWidget {
       body: Row(
         children: [
           const AppSiderbar(),
+          const VerticalDivider(
+            thickness: .8,
+          ),
+          defHorizontalSeperator,
           Expanded(
             child: Consumer(
               builder: (context, ref, _) {
