@@ -21,7 +21,12 @@ class AppSiderbar extends ConsumerWidget {
         id: SelectedTool.unixTimeConverter,
         title: 'Unix Time Converter',
         onPressed: () => onSelected(SelectedTool.unixTimeConverter),
-      )
+      ),
+      (
+        id: SelectedTool.passwordGenerator,
+        title: 'Password Generator',
+        onPressed: () => onSelected(SelectedTool.passwordGenerator),
+      ),
     ];
     return SizedBox(
       width: 200,
