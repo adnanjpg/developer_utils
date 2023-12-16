@@ -22,3 +22,9 @@ Effortlessly handle Unix timestamps, supporting conversions between:
 - Microseconds from epoch
 - ISO8601 string formats (local and UTC)
 - Relative time strings
+
+## 3. Password Generator
+Quickly generate secure passwords with a single click, with the ability to customise the length and character set. Features include:
+- Customisable password length
+- Lowercase letters, uppercase letters, numbers and symbols toggleable
+- All characters, easy to read, and easy to say options
