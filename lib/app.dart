@@ -1,4 +1,5 @@
 import 'package:developer_utils/features/password_generator/password_generator.dart';
+import 'package:developer_utils/features/percentage_calculator/percentage_calculator.dart';
 import 'package:developer_utils/features/string_case_converter/string_case_converter.dart';
 import 'package:developer_utils/features/unix_time_converter/unix_time_converter.dart';
 import 'package:developer_utils/selected_tool_prov.dart';
@@ -51,6 +52,8 @@ class MyHomePage extends StatelessWidget {
                     return const UnixTimeConverter();
                   case SelectedTool.passwordGenerator:
                     return const PasswordGenerator();
+                  case SelectedTool.percentageCalculator:
+                    return const PercentageCalculator();
                 }
               },
             ),

@@ -27,6 +27,11 @@ class AppSiderbar extends ConsumerWidget {
         title: 'Password Generator',
         onPressed: () => onSelected(SelectedTool.passwordGenerator),
       ),
+      (
+        id: SelectedTool.percentageCalculator,
+        title: 'Percentage Calculator',
+        onPressed: () => onSelected(SelectedTool.percentageCalculator),
+      ),
     ];
     return SizedBox(
       width: 200,

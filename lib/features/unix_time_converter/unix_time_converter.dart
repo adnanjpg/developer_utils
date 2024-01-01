@@ -1,8 +1,7 @@
 import 'package:developer_utils/utils/utils.dart';
+import 'package:developer_utils/widgets/field_output_item.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:life_saver_extensions/life_saver_extensions.dart';
-import 'package:remixicon/remixicon.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 enum _TimeType {
@@ -125,13 +124,13 @@ class _UnixTimeConverterState extends State<UnixTimeConverter> {
             Row(
               children: [
                 Expanded(
-                  child: _OutputItem(
+                  child: FieldOutputItem(
                     title: 'Local',
                     text: val.time.toIso8601String(),
                   ),
                 ),
                 Expanded(
-                  child: _OutputItem(
+                  child: FieldOutputItem(
                     title: 'UTC',
                     text: val.time.toUtc().toIso8601String(),
                   ),
@@ -141,13 +140,13 @@ class _UnixTimeConverterState extends State<UnixTimeConverter> {
             Row(
               children: [
                 Expanded(
-                  child: _OutputItem(
+                  child: FieldOutputItem(
                     title: 'Seconds from epoch',
                     text: (val.time.millisecondsSinceEpoch ~/ 1000).toString(),
                   ),
                 ),
                 Expanded(
-                  child: _OutputItem(
+                  child: FieldOutputItem(
                     title: 'Milliseconds from epoch',
                     text: val.time.millisecondsSinceEpoch.toString(),
                   ),
@@ -157,13 +156,13 @@ class _UnixTimeConverterState extends State<UnixTimeConverter> {
             Row(
               children: [
                 Expanded(
-                  child: _OutputItem(
+                  child: FieldOutputItem(
                     title: 'Microseconds from epoch',
                     text: val.time.microsecondsSinceEpoch.toString(),
                   ),
                 ),
                 Expanded(
-                  child: _OutputItem(
+                  child: FieldOutputItem(
                     title: 'Relative',
                     text: timeago.format(val.time),
                   ),
@@ -175,55 +174,6 @@ class _UnixTimeConverterState extends State<UnixTimeConverter> {
           (_) => defVerticalSeperator,
         ),
       ),
-    );
-  }
-}
-
-class _OutputItem extends StatelessWidget {
-  final String title;
-  final String text;
-  const _OutputItem({
-    required this.title,
-    required this.text,
-  });
-
-  void _copy(BuildContext context) {
-    Clipboard.setData(
-      ClipboardData(
-        text: text,
-      ),
-    );
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Copied to clipboard'),
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(title),
-        Row(
-          children: [
-            Expanded(
-              child: TextFormField(
-                initialValue: text,
-                readOnly: true,
-              ),
-            ),
-            SizedBox(
-              width: 50,
-              child: IconButton(
-                icon: const Icon(Remix.file_copy_fill),
-                onPressed: () => _copy(context),
-              ),
-            ),
-          ],
-        ),
-      ],
     );
   }
 }
