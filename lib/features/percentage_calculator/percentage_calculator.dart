@@ -58,34 +58,15 @@ class _PercentageCalculatorState extends State<PercentageCalculator> {
     partsController?.text = v1.toString();
   }
 
-  bool valForm() {
-    final form = formKey.currentState;
-    final v = form?.validate();
-
-    return v == true;
-  }
-
-  void onV1Changed(String value) {
-    if (!valForm()) {
-      return;
-    }
-
+  void onPartsChanged(String value) {
     recalcPercentage();
   }
 
-  void onV2Changed(String value) {
-    if (!valForm()) {
-      return;
-    }
-
+  void onWholeChanged(String value) {
     recalcPercentage();
   }
 
-  void onV3Changed(String value) {
-    if (!valForm()) {
-      return;
-    }
-
+  void onPercentageChanged(String value) {
     recalcParts();
   }
 
@@ -105,7 +86,7 @@ class _PercentageCalculatorState extends State<PercentageCalculator> {
                   text: parts.toString(),
                   textFormField: TextFormField(
                     controller: partsController,
-                    onChanged: onV1Changed,
+                    onChanged: onPartsChanged,
                   ),
                 ),
               ),
@@ -115,7 +96,7 @@ class _PercentageCalculatorState extends State<PercentageCalculator> {
                   text: whole.toString(),
                   textFormField: TextFormField(
                     controller: wholeController,
-                    onChanged: onV2Changed,
+                    onChanged: onWholeChanged,
                   ),
                 ),
               ),
@@ -134,7 +115,7 @@ class _PercentageCalculatorState extends State<PercentageCalculator> {
                   text: percentage.toString(),
                   textFormField: TextFormField(
                     controller: percentageController,
-                    onChanged: onV3Changed,
+                    onChanged: onPercentageChanged,
                   ),
                 ),
               ),
