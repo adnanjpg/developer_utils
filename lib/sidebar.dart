@@ -32,6 +32,11 @@ class AppSiderbar extends ConsumerWidget {
         title: 'Percentage Calculator',
         onPressed: () => onSelected(SelectedTool.percentageCalculator),
       ),
+      (
+        id: SelectedTool.byteConverter,
+        title: 'Byte Converter',
+        onPressed: () => onSelected(SelectedTool.byteConverter),
+      ),
     ];
     return SizedBox(
       width: 200,

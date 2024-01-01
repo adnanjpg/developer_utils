@@ -5,6 +5,7 @@ enum SelectedTool {
   unixTimeConverter,
   passwordGenerator,
   percentageCalculator,
+  byteConverter,
 }
 
 final selectedToolProv = StateProvider<SelectedTool>(

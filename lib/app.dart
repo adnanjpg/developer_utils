@@ -1,3 +1,4 @@
+import 'package:developer_utils/features/byte_converter/byte_converter.dart';
 import 'package:developer_utils/features/password_generator/password_generator.dart';
 import 'package:developer_utils/features/percentage_calculator/percentage_calculator.dart';
 import 'package:developer_utils/features/string_case_converter/string_case_converter.dart';
@@ -54,6 +55,8 @@ class MyHomePage extends StatelessWidget {
                     return const PasswordGenerator();
                   case SelectedTool.percentageCalculator:
                     return const PercentageCalculator();
+                  case SelectedTool.byteConverter:
+                    return const ByteConverter();
                 }
               },
             ),
